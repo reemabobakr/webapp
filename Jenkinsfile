@@ -17,7 +17,9 @@ pipeline {
         stage('Check website is up') {
             steps {
                 echo 'Check website is up'
-                sh 'curl -Is 16.170.146.46 | head -n 1'
+                // sh 'curl -Is 16.170.146.46 | head -n 1'
+                curl -Is --max-time 30 16.170.146.46 | head -n 1
+
             }
         }
     }
